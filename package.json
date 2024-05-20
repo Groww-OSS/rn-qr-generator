@@ -1,5 +1,5 @@
 {
-  "name": "rn-qr-generator",
+  "name": "@groww-oss/rn-qr-generator",
   "version": "1.2.3",
   "description": "React native QR Code generator / reader",
   "main": "index.js",
@@ -13,6 +13,13 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Groww-OSS/rn-qr-generator.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "react-native",
