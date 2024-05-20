@@ -11,7 +11,7 @@ on:
 
 jobs:
   publish-package:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
@@ -39,4 +39,4 @@ jobs:
       - name: Publish Package
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PUBLISH_TOKEN_GITHUB }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
