@@ -1,0 +1,42 @@
+name: Publish Library
+
+on:
+  workflow_dispatch:
+    # inputs:
+    #     release_type:
+    #         description: 'release type'
+    #         type: choice
+    #         options: ['patch', 'minor', 'major']
+    #         default: 'patch'
+
+jobs:
+  publish-package:
+    runs-on: self-hosted
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.15.0'
+          registry-url: 'https://npm.pkg.github.com/'
+
+      - name: Install Yarn
+        run: npm install --global yarn@1.22.18
+
+      - name: Install Node Dependencies
+        run: |
+            yarn install --frozen-lockfile
+
+      #   - name: update version accordingly
+      #     run: npm version ${{ inputs.release_type }}
+
+      #   - run: cat package.json
+
+      - name: Publish Package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
