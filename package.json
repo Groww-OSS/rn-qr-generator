@@ -1,5 +1,5 @@
 {
-  "name": "@groww-oss/rn-qr-generator",
+  "name": "@groww/rn-qr-generator",
   "version": "1.2.5",
   "description": "React native QR Code generator / reader",
   "main": "index.js",
